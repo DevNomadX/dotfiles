@@ -1,0 +1,17 @@
+font-family = JetBrainsMono Nerd Font
+theme = "Catppuccin Mocha"
+
+cursor-style = block
+cursor-style-blink = true
+
+background-opacity = 0.9 
+
+window-padding-x = 10
+window-padding-y = 10
+#window-decoration = none
+
+window-height = 25
+window-width = 80
+
+gtk-titlebar = false
+shell-integration-features = "cursor,ssh-env"
