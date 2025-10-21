@@ -1,4 +1,7 @@
 font-family = JetBrainsMono Nerd Font
+
+#font-family = MesloLGL Nerd Font
+
 theme = "Catppuccin Mocha"
 
 cursor-style = block
