@@ -12,7 +12,6 @@ typeset -U path PATH
 path=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
-  /opt/nvim-linux-x86_64/bin
   "$HOME/.config/tmux/plugins/tmuxifier/bin"
   /usr/local/go/bin
   "$HOME/bin"
@@ -35,7 +34,7 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
   git clone --depth=1 https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git"
 fi
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit && _comps[zinit]=_zinit
+#autoload -Uz _zinit && _comps[zinit]=_zinit
 
 # ──────────────────────────────────────────────
 # 🔌 Zinit Annexes (for async + binary mgmt)
@@ -57,13 +56,9 @@ typeset -g POWERLEVEL9K_VCS_GITSTATUS_DIR="$HOME/.cache/gitstatus"
 # ──────────────────────────────────────────────
 # 📦 Async Plugins (Turbo Mode)
 # ──────────────────────────────────────────────
-zinit ice wait'0a' lucid
+
 zinit light zsh-users/zsh-completions
-
-zinit ice wait'0b' lucid
 zinit light zsh-users/zsh-autosuggestions
-
-zinit ice wait'1' lucid
 zinit light Aloxaf/fzf-tab
 
 zinit ice wait'2' lucid
@@ -163,6 +158,6 @@ alias ls='eza -al --color=always --group-directories-first --icons'
 alias la='eza -a --color=always --group-directories-first --icons'
 alias ll='eza -l --color=always --group-directories-first --icons'
 alias lt='eza -aT --color=always --group-directories-first --icons'
-alias cat='bat --theme=Dracula --style=plain'
+alias cat='bat --theme=Dracula'
 alias l.='ls -A | grep "^\."'
 alias speedtest='speedtest-cli | awk "/Download:|Upload:/ {print \$1, \$2, \$3, \"(\", \$2/8, \"MBps)\"}"'
