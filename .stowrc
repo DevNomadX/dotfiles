@@ -1,0 +1,13 @@
+# Ignore Git and repo housekeeping files
+--ignore='\.git'
+--ignore='\.gitignore'
+--ignore='\.gitattributes'
+--ignore='\.stowrc'
+--ignore='README\.md'
+--ignore='fonts_install\.sh'
+--ignore='LICENSE'
+--ignore='.*\.swp'
+
+# Optional quality-of-life options
+--verbose=2
+--no-folding
