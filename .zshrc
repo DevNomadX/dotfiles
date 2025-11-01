@@ -179,6 +179,16 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview \
      echo "Preview not available"
    fi'
 
+# 📄 File preview for common commands (cat, bat, vim, nvim, etc.)
+zstyle ':fzf-tab:complete:(cat|bat|less|more|vim|nvim|vi|nano|code|rm|trash|eza):*' fzf-preview \
+  'if [[ -d $realpath ]]; then
+     eza --icons --color=always -a --group-directories-first --oneline "$realpath"
+   elif [[ -f $realpath ]]; then
+     bat --color=always --style=numbers --theme=Dracula --line-range=:400 "$realpath" 2>/dev/null || cat "$realpath"
+   else
+     echo "Preview not available"
+   fi'
+
 # 📦 Preview for package managers
 zstyle ':fzf-tab:complete:(apt|apt-get):*' fzf-preview 'apt-cache show $word 2>/dev/null'
 zstyle ':fzf-tab:complete:yay:*' fzf-preview 'yay -Si $word 2>/dev/null'
@@ -256,30 +266,6 @@ fe() {
 # 📊 Show directory size sorted
 ducks() {
   du -sh -- * | sort -h
-}
-
-# 📦 Extract various archive types easily
-extract() {
-  for archive in "$@"; do
-    if [[ -f "$archive" ]]; then
-      case "$archive" in
-        *.tar.bz2)   tar xvjf "$archive" ;;
-        *.tar.gz)    tar xvzf "$archive" ;;
-        *.bz2)       bunzip2 "$archive" ;;
-        *.rar)       unrar x "$archive" ;;
-        *.gz)        gunzip "$archive" ;;
-        *.tar)       tar xvf "$archive" ;;
-        *.tbz2)      tar xvjf "$archive" ;;
-        *.tgz)       tar xvzf "$archive" ;;
-        *.zip)       unzip "$archive" ;;
-        *.Z)         uncompress "$archive" ;;
-        *.7z)        7z x "$archive" ;;
-        *)           echo "❌ Don't know how to extract '$archive'." ;;
-      esac
-    else
-      echo "⚠️  '$archive' is not a valid file!"
-    fi
-  done
 }
 
 # ══════════════════════════════════════════════════════════════
