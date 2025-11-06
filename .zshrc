@@ -144,9 +144,10 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"          # 🌈 colorful
 zstyle ':completion:*' menu no                                   # 🚫 disable default menu
 zstyle ':completion:*' squeeze-slashes true                      # 🗜️  remove duplicate slashes
 zstyle ':completion:*:*:*:*:descriptions' format '%F{cyan}-- %d --%f'
-zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}-- %d (errors: %e) --%f'
-zstyle ':completion:*:messages' format '%F{purple}-- %d --%f'
-zstyle ':completion:*:warnings' format '%F{red}-- no matches found --%f'
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':fzf-tab:*' prefix ''  # ← ADD THIS LINE
 
 # ══════════════════════════════════════════════════════════════
 # 🔍 FZF-Tab Configuration (preview with eza + bat)
