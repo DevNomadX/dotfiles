@@ -7,6 +7,7 @@
 --ignore='fonts_install\.sh'
 --ignore='LICENSE'
 --ignore='.*\.swp'
+--ignore='dnf\.conf'
 
 # Optional quality-of-life options
 --verbose=2

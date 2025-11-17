@@ -139,9 +139,9 @@ bindkey '^[[B' history-search-forward         # ⬇️  Down arrow (history sear
 # ══════════════════════════════════════════════════════════════
 # 🎨 Completion Styling (modern, case-insensitive)
 # ══════════════════════════════════════════════════════════════
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'           # 🔠 case-insensitive
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'              # 🔠 case-insensitive
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"          # 🌈 colorful completions
-zstyle ':completion:*' menu no                                   # 🚫 disable default menu
+zstyle ':completion:*' menu select                                    # 🚫 disable default menu
 zstyle ':completion:*' squeeze-slashes true                      # 🗜️  remove duplicate slashes
 zstyle ':completion:*:*:*:*:descriptions' format '%F{cyan}-- %d --%f'
 zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
@@ -269,6 +269,19 @@ ducks() {
   du -sh -- * | sort -h
 }
 
+#  for compileing Kotlin
+
+kotlincompile() {
+    # Check if both arguments are provided
+    if [ $# -lt 2 ]; then
+        echo " Usage: kotlincompile <source-file.kt> <output-jar-name.jar>"
+        return 1
+    fi
+
+    # Compile the Kotlin file into the specified JAR
+    kotlinc "$1" -include-runtime -d "$2" && echo "  ⟶  Compilation successful: $2"
+}
+
 # ══════════════════════════════════════════════════════════════
 # ✨ Final Touches
 # ══════════════════════════════════════════════════════════════
@@ -280,3 +293,10 @@ ducks() {
 if [[ ! -f ~/.zshrc.zwc || ~/.zshrc -nt ~/.zshrc.zwc ]]; then
   zcompile ~/.zshrc &!
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Limit JVM memory for Kotlin LSP / other Java tools
+export JAVA_OPTS="-Xmx512m -Xms256m"
