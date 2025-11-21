@@ -1,9 +1,17 @@
 # ══════════════════════════════════════════════════════════════
-# ⚡ Powerlevel10k Instant Prompt (MUST stay first for speed)
+# ⚡ Fastfetch (top, show system info)
 # ══════════════════════════════════════════════════════════════
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+export TERM="xterm-256color"
+export COLORTERM=truecolor
+
+if [[ -o interactive ]]; then
+    fastfetch
 fi
+
+# ══════════════════════════════════════════════════════════════
+# ⚡ Starship Prompt (replace Powerlevel10k)
+# ══════════════════════════════════════════════════════════════
+eval "$(starship init zsh)"
 
 # ══════════════════════════════════════════════════════════════
 # 🧭 PATH Configuration (deduplicated automatically with typeset -U)
@@ -43,16 +51,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 # 🔌 Zinit Annexes (binary/gem/node management)
 # ══════════════════════════════════════════════════════════════
 zinit light-mode for zdharma-continuum/zinit-annex-bin-gem-node
-
-# ══════════════════════════════════════════════════════════════
-# 💎 Powerlevel10k Theme (fast, async git info)
-# ══════════════════════════════════════════════════════════════
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-# 🚀 Enable async git status (gitstatus is built into p10k)
-typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
 
 # ══════════════════════════════════════════════════════════════
 # ⚡ Fast Compinit (cache refresh every 7 days)
