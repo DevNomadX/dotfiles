@@ -4,6 +4,8 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
+scan_timeout = 1000 # milliseconds
+
 [aws]
 symbol = "  "
 
@@ -145,6 +147,9 @@ symbol = " "
 error_symbol = "[✘](red)"
 success_symbol = "[❯](green)"
 vimcmd_symbol = "[❮](green)"
+
+[battery]
+disabled = true
 
 # Disable the package module, hiding it from the prompt completely
 #[package]
