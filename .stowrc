@@ -5,6 +5,7 @@
 --ignore='\.stowrc'
 --ignore='README\.md'
 --ignore='fonts_install\.sh'
+--ignore='setup\.sh'
 --ignore='LICENSE'
 --ignore='.*\.swp'
 --ignore='dnf\.conf'
