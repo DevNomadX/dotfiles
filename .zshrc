@@ -223,7 +223,7 @@ alias lt='eza -aT --color=always --group-directories-first --icons'
 alias l.='eza -a | grep -E "^\."'
 
 # 📖 Better cat (bat)
-alias cat='bat --theme=Dracula'
+alias cat='bat -fn --theme=Dracula'
 alias less='bat --paging=always'
 
 # 🌐 Network utilities

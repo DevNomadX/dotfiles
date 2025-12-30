@@ -9,7 +9,7 @@
 --ignore='LICENSE'
 --ignore='.*\.swp'
 --ignore='dnf\.conf'
-
+--ignore='\.gnome'
 # Optional quality-of-life options
 --verbose=2
 --no-folding

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-notify () {
+notify() {
   echo -e "\n🔔 $1\n"
 }
 
@@ -77,7 +77,7 @@ sudo dnf install -y --skip-unavailable \
   java-25-openjdk \
   java-25-openjdk-devel \
   nodejs \
-  npm   \
+  npm \
   python3 \
   python3-pip \
   fuse-libs \
@@ -93,11 +93,10 @@ sudo dnf install -y --skip-unavailable \
   gnome-shell-extension-user-themes \
   gnome-shell-extension-blur-my-shell \
   gnome-shell-extension-caffeine \
-  pipx  \
+  pipx \
   ripgrep \
   speedtest-cli \
-  firewall-config \
-
+  firewall-config
 
 # -------------------------------------------------
 # VS Code (official repo)
@@ -106,7 +105,7 @@ notify "Installing Visual Studio Code"
 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
-sudo tee /etc/yum.repos.d/vscode.repo > /dev/null <<EOF
+sudo tee /etc/yum.repos.d/vscode.repo >/dev/null <<EOF
 [code]
 name=Visual Studio Code
 baseurl=https://packages.microsoft.com/yumrepos/vscode
@@ -138,7 +137,6 @@ notify "Installing Development Tools group"
 
 sudo dnf group install -y "Development Tools" --skip-unavailable
 
-
 # -------------------------------------------------
 # Install Starship prompt
 # -------------------------------------------------
@@ -156,12 +154,12 @@ pipx install gnome-extensions-cli
 
 # Install some GNOME extensions via gext
 gext install \
-    tactile@lundal.io \
-    appindicatorsupport@rgcjonas.gmail.com \
-    clipboard-indicator@tudmotu.com \
-    logomenu@aryan_k \
-    network-stats@gnome.noroadsleft.xyz \
-    window-title-is-back@fthx \
+  tactile@lundal.io \
+  appindicatorsupport@rgcjonas.gmail.com \
+  clipboard-indicator@tudmotu.com \
+  logomenu@aryan_k \
+  network-stats@gnome.noroadsleft.xyz \
+  window-title-is-back@fthx
 
 # -------------------------------------------------
 # Setup LazyVim (Neovim config)
@@ -187,10 +185,9 @@ curl -s "https://get.sdkman.io" | bash
 
 # Initialize SDKMAN! in bashrc if not already present
 if ! grep -q 'sdkman-init.sh' ~/.bashrc; then
-    echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> ~/.bashrc
-    echo '[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"' >> ~/.bashrc
+  echo 'export SDKMAN_DIR="$HOME/.sdkman"' >>~/.bashrc
+  echo '[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"' >>~/.bashrc
 fi
-
 
 # -------------------------------------------------
 # Install Brave Browser
@@ -220,8 +217,7 @@ flatpak install -y flathub \
   com.protonvpn.www \
   fr.handbrake.ghb \
   com.mattjakeman.ExtensionManager \
-  com.github.unrud.VideoDownloader 
-
+  com.github.unrud.VideoDownloader
 
 # -------------------------------------------------
 # Install GitHub CLI
@@ -230,9 +226,7 @@ notify "Installing GitHub CLI"
 
 # Install DNF plugin to manage repositories
 sudo dnf install -y dnf-plugins-core --skip-unavailable
-
-# Add the official GitHub CLI repo
-sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+sudo dnf4 config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 
 # Install gh from the official repo
 sudo dnf install -y gh --repo gh-cli --skip-unavailable
@@ -250,12 +244,15 @@ sudo dnf install -y --skip-unavailable \
   google-noto-emoji-fonts \
   google-noto-cjk-fonts \
   fira-code-fonts \
-  cascadia-code-fonts \
+  cascadia-code-fonts
 
 # Install Fira Mono Nerd Font (manual install)
 # Make sure the script is executable
 chmod +x ./fonts_install.sh
 ./fonts_install.sh
+
+chmod +x ./gnome/shortcut/restor_shortcut.sh
+./gnome/shortcut/restor_shortcut.sh
 
 # -------------------------------------------------
 # Install Proton Pass (official RPM)
@@ -274,7 +271,6 @@ sudo dnf install -y --skip-unavailable ./proton-pass.rpm
 cd -
 rm -rf "$TMP_PP"
 
-
 # -------------------------------------------------
 # Change default shell to Zsh
 # -------------------------------------------------
@@ -282,7 +278,7 @@ notify "Changing default shell to Zsh"
 
 # Change the shell for the current user
 if [ "$SHELL" != "$(which zsh)" ]; then
-    chsh -s "$(which zsh)"
+  chsh -s "$(which zsh)"
 fi
 
 # -------------------------------------------------
@@ -295,7 +291,6 @@ cd ~/dotfiles
 
 # Deploy all subdirectories into $HOME
 stow -t "$HOME" . -v
-
 
 # -------------------------------------------------
 # Done
