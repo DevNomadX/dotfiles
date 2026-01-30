@@ -1,5 +1,6 @@
 # Ignore Git and repo housekeeping files
 --ignore='\.git'
+--ignore='Cosmic_themes'
 --ignore='\.gitignore'
 --ignore='\.gitattributes'
 --ignore='\.stowrc'
