@@ -1,16 +1,7 @@
-# Ignore Git and repo housekeeping files
---ignore='\.git'
---ignore='Cosmic_themes'
---ignore='\.gitignore'
---ignore='\.gitattributes'
---ignore='\.stowrc'
---ignore='README\.md'
---ignore='fonts_install\.sh'
---ignore='setup\.sh'
---ignore='LICENSE'
---ignore='.*\.swp'
---ignore='dnf\.conf'
---ignore='\.gnome'
+# Ignore git and housekeeping files
+--ignore='(\.git|\.gitignore|\.gitattributes|\.stowrc|README\.md|LICENSE|fonts_install\.sh|setup\.sh|.*\.swp|dnf\.conf|\.gnome|Cosmic_themes|post-install\.sh)'
+
 # Optional quality-of-life options
 --verbose=2
 --no-folding
+--restow
