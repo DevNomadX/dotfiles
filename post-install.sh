@@ -72,6 +72,16 @@ ln -sf /usr/bin/batcat ~/.local/bin/bat
 ln -sf /usr/bin/fdfind ~/.local/bin/fd
 
 # -------------------------------------------------
+# Fastfetch (Modern Neofetch replacement)
+# -------------------------------------------------
+if ! command -v fastfetch &> /dev/null; then
+    notify "Installing Fastfetch"
+    sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
+    sudo apt update
+    sudo apt install -y fastfetch
+fi
+
+# -------------------------------------------------
 # Flatpak
 # -------------------------------------------------
 notify "Setting up Flatpaks"
