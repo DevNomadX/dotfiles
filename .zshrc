@@ -10,7 +10,7 @@
 # ══════════════════════════════════════════════════════════════
 export PATH="$HOME/.local/share/fnm:$PATH"
 # 1. Source all modular configuration files from conf.d/
-ZDOTDIR=${ZDOTDIR:-~/.config/zsh}
+ZDOTDIR=${ZDOTDIR:-~/dotfiles/.config/zsh}
 for file in "$ZDOTDIR"/conf.d/*.zsh; do
   if [ -r "$file" ]; then
     source "$file"

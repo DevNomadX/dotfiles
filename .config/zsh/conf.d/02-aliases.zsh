@@ -3,9 +3,9 @@
 # ══════════════════════════════════════════════════════════════
 
 # 📝 Editor shortcuts
-alias vi='vim'
-alias svi='sudo -E vim'
-alias svim='sudo -E vim'
+alias vi='nvim'
+alias svi='sudo -E nvim'
+alias svim='sudo -E nvim'
 
 # 📁 Modern ls replacement (eza)
 alias ls='eza -al --color=always --group-directories-first --icons'

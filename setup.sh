@@ -58,7 +58,6 @@ notify "Installing core applications"
 sudo dnf install -y --skip-unavailable \
   fzf \
   zoxide \
-  kitty \
   vlc \
   neovim \
   wget \
@@ -93,7 +92,6 @@ sudo dnf install -y --skip-unavailable \
   gnome-shell-extension-user-themes \
   gnome-shell-extension-blur-my-shell \
   gnome-shell-extension-caffeine \
-  pipx \
   ripgrep \
   speedtest-cli \
   firewall-config
@@ -148,18 +146,18 @@ curl -sS https://starship.rs/install.sh | sh -s -- -y
 # -------------------------------------------------
 # gext and GNOME extensions
 # -------------------------------------------------
-notify "gext and gnome extensions setup"
+#notify "gext and gnome extensions setup"
 # Install gext if not installed
-pipx install gnome-extensions-cli
+#pipx install gnome-extensions-cli
 
 # Install some GNOME extensions via gext
-gext install \
-  tactile@lundal.io \
-  appindicatorsupport@rgcjonas.gmail.com \
-  clipboard-indicator@tudmotu.com \
-  logomenu@aryan_k \
-  network-stats@gnome.noroadsleft.xyz \
-  window-title-is-back@fthx
+#gext install \
+#  tactile@lundal.io \
+#  appindicatorsupport@rgcjonas.gmail.com \
+#  clipboard-indicator@tudmotu.com \
+#  logomenu@aryan_k \
+#  network-stats@gnome.noroadsleft.xyz \
+#  window-title-is-back@fthx
 
 # -------------------------------------------------
 # Setup LazyVim (Neovim config)
@@ -251,8 +249,8 @@ sudo dnf install -y --skip-unavailable \
 chmod +x ./fonts_install.sh
 ./fonts_install.sh
 
-chmod +x ./gnome/shortcut/restor_shortcut.sh
-./gnome/shortcut/restor_shortcut.sh
+#chmod +x ./gnome/shortcut/restor_shortcut.sh
+#./gnome/shortcut/restor_shortcut.sh
 
 # -------------------------------------------------
 # Install Proton Pass (official RPM)
