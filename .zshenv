@@ -1,6 +1,7 @@
 # ══════════════════════════════════════════════════════════════
 # 🌍 Environment Variables (sourced on every shell invocation)
 # ══════════════════════════════════════════════════════════════
+export ZDOTDIR="${ZDOTDIR:-$HOME/dotfiles/.config/zsh}"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export SUDO_EDITOR="nvim"

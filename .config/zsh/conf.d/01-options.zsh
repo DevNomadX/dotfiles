@@ -1,6 +1,8 @@
 # ══════════════════════════════════════════════════════════════
 # ⚙️ Zsh Options (behavior & history)
 # ══════════════════════════════════════════════════════════════
+umask 0027                       # 🔒 restrictive file permissions
+
 setopt autocd                    # 📂 cd by typing directory name
 setopt correct                   # ✏️  suggest corrections
 setopt interactivecomments       # 💬 allow comments in interactive mode
@@ -22,8 +24,13 @@ setopt hist_reduce_blanks        # 🧹 remove extra blanks
 setopt inc_append_history        # ⚡ write to history immediately
 
 HISTSIZE=10000                   # 📊 increased from 5000 for better history
-HISTFILE="${HOME}/.zsh_history"
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
 SAVEHIST=$HISTSIZE
+
+# Ensure history directory exists with proper permissions
+mkdir -p "$(dirname "$HISTFILE")"
+touch "$HISTFILE" 2>/dev/null
+chmod 600 "$HISTFILE" 2>/dev/null
 
 # ══════════════════════════════════════════════════════════════
 # ⌨️  Key Bindings (Emacs mode)

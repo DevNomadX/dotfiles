@@ -151,6 +151,15 @@ vimcmd_symbol = "[❮](green)"
 [battery]
 disabled = true
 
+[shell]
+disabled = false
+format = "[$indicator]($style) "
+
+# Nerd Font Devicons Bash icon
+bash_indicator = " "   # nf-dev-bash
+zsh_indicator  = ""    # generic shell icon for Zsh
+style = "bold green"
+
 # Disable the package module, hiding it from the prompt completely
 #[package]
 #disabled = true
