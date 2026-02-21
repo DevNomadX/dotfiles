@@ -1,2 +1,2 @@
 # Ignore compiled Zsh scripts
-*.zwc
+./.config/zsh/conf.d/*.zwc
