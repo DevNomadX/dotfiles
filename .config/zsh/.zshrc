@@ -42,9 +42,9 @@ done
 wait
 unset f
 
-# Display system information with fastfetch (only in first shell)
-if [[ $SHLVL -eq 1 ]] && command -v fastfetch &>/dev/null; then
-  (fastfetch &)
+# Run Fastfetch on interactive shell start
+if [[ -o interactive ]]; then
+  fastfetch
 fi
 
 # Performance profiling end (uncomment matching zmodload above)

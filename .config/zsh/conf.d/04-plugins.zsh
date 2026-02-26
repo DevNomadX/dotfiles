@@ -27,8 +27,12 @@ fi
 
 
 # 3. Tool Initializations (FNM, UV)
-if (( $+commands[fnm] )); then
-  eval "$(fnm env --use-on-cd --shell zsh)"
+if ! command -v fnm >/dev/null 2>&1; then
+  FNM_PATH="$HOME/.local/share/fnm"
+  if [ -d "$FNM_PATH" ]; then
+    export PATH="$FNM_PATH:$PATH"
+    eval "$(fnm env --use-on-cd --shell zsh)"
+  fi
 fi
 if (( $+commands[uv] )); then
   eval "$(uv generate-shell-completion zsh)"
