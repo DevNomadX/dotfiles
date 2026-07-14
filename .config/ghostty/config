@@ -2,7 +2,7 @@ font-family = JetBrainsMono Nerd Font
 
 #font-family = MesloLGL Nerd Font
 
-theme = "Catppuccin Mocha"
+theme = "Monokai Pro Ristretto"
 
 cursor-style = block
 cursor-style-blink = true
@@ -14,7 +14,7 @@ window-padding-y = 10
 #window-decoration = none
 
 window-height = 25
-window-width = 80
+window-width = 90
 
 gtk-titlebar = false
 shell-integration-features = "cursor,ssh-env"
