@@ -19,6 +19,7 @@ set -gx SUDO_EDITOR nvim
 set -gx TERMINAL alacritty
 set -gx COLORTERM truecolor
 set -gx JAVA_OPTS "-Xmx512m -Xms256m"
+set -gx PATH /home/skmonir/.opencode/bin $PATH
 
 # Only override TERM if unset or linux (preserves tmux/screen values)
 if test -z "$TERM" -o "$TERM" = linux
